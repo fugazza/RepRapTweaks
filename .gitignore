@@ -1,0 +1,9 @@
+// ignore all machine-specific g-codes
+*.gcode
+// ignore all files exported from ArtOfIllusion
+*.obj
+// do not include the strain relief yet, as it is not perfect
+extruder_strain_relief
+// files to be ignored from rhmorisson's spool holder
+Mendel_Filament_Holder_v2_repair*
+spool_holder_plate_1*

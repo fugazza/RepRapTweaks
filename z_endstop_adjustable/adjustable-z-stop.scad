@@ -7,6 +7,7 @@ trapezoidNut from http://www.thingiverse.com/thing:8793
 
 xend_height=16;
 wall_thickness=3.5;
+wall_thickness_bottom=7;
 extension=14;
 
 plunger_dia=23;
@@ -79,11 +80,11 @@ rotate([90,0,0]){
 			//clip
 			difference(){
 				union(){
-					cube([clip_width,clip_depth+wall_thickness,xend_height+wall_thickness*2]);
-					translate([0,0,-wall_thickness]) cube([clip_width,clip_depth+wall_thickness,wall_thickness+.5]);
+					cube([clip_width,clip_depth+wall_thickness_bottom,xend_height+wall_thickness*2]);
+					translate([0,0,-wall_thickness]) cube([clip_width,clip_depth+wall_thickness_bottom,wall_thickness+.5]);
 				}
-				# translate([-1,wall_thickness,wall_thickness]) cube([clip_width+2,clip_depth+1,xend_height+.2]);
-				# translate([clip_width/2,wall_thickness+clip_depth/2,wall_thickness+1]) {
+				# translate([-1,wall_thickness_bottom,wall_thickness]) cube([clip_width+2,clip_depth+1,xend_height+.2]);
+				# translate([clip_width/2,wall_thickness_bottom+clip_depth/2,wall_thickness+1]) {
 					rotate([0,180,0]){
 						union(){
 							trapezoidNut(nut_height+1,nut_dia/2);
@@ -93,12 +94,12 @@ rotate([90,0,0]){
 				}
 			}
 			//extension
-			translate([0-extension+.01,0,-wall_thickness]) cube([extension+.01,wall_thickness,hand_height]);
+			translate([0-extension-0.01,0,-wall_thickness]) cube([extension+0.02,wall_thickness_bottom,hand_height]);
 			//hand
 			translate([0-extension+.01-hand_width,0,-wall_thickness]){
 				difference(){
-					cube([hand_width,hand_length+wall_thickness,hand_height]);
-					# translate([hand_width/2,hand_length/2+wall_thickness,0]) {
+					cube([hand_width,hand_length+wall_thickness_bottom,hand_height]);
+					 translate([hand_width/2,hand_length/2+wall_thickness_bottom,0]) {
 						union(){
 							translate([0,0,-1]) trapezoidNut(nut_height+1,nut_dia/2);
 							cylinder(h=hand_height+2,r=screw_dia/2);
@@ -124,3 +125,5 @@ translate([30,0,plunger_height]){
 		}
 	}
 }
+
+%translate([12,0,26.5]) cube([10,10,10]);

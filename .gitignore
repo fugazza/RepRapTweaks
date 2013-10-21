@@ -1,5 +1,6 @@
 // ignore all machine-specific g-codes
 *.gcode
+*.gco
 // ignore all files exported from ArtOfIllusion
 *.obj
 // do not include the strain relief yet, as it is not perfect
